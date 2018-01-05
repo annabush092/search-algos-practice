@@ -16,6 +16,7 @@ class MySearch
   # get and validate user input
   # invoked in get_algorithm
   def self.get_choice(length)
+    puts ""
     puts "Please enter the number of the search algorithm you would like to use: "
     input = gets.chomp
 
@@ -42,16 +43,17 @@ class MySearch
     10.times do
       rando_arr << (Random.rand() * 100 + 1).to_i
     end
-    puts "The new array is: #{rando_arr}"
+    # puts "The new array is: #{rando_arr}"
     rando_arr
   end
 
   # ask user for a search term
   # invoked in make_my_search
   def get_search_term
+    puts ""
     puts "Please enter an integer you would like to search for between 1 and 100:"
     user_input = gets.chomp
-    puts "You entered #{user_input}."
+    # puts "You entered #{user_input}."
 
     # validate user input
     if user_input.to_i>100 || user_input.to_i < 1
@@ -79,8 +81,7 @@ class MySearch
 
   #search for term using the specified algorithm
   def make_my_search
-    puts "Searching using a #{@algo.capitalize} Search..."
-
+    puts "You chose to search using a #{@algo.capitalize} Search..."
     self.perform_search
   end
 

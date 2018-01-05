@@ -10,15 +10,12 @@
 #   return `Term not found in array.`
 # }
 
-class SimpleSearch
-
-  def initialize(arr, search_term)
-    @arr = arr
-    @search_term = search_term
-  end
+class SimpleSearch < SearchMom
 
   def perform
-    puts "Inside simple search, arr = #{@arr}, search_term = #{@search_term}"
+    self.print_initial_info("Simple Search")
+    puts "..."
+
   end
 
 end

@@ -8,7 +8,3 @@ search_index = MySearch.get_algorithm(ALL_SEARCHES)
 #perform a search using the chosen algorithm
 my_search = MySearch.new(ALL_SEARCHES[search_index])
 my_search.make_my_search
-
-
-#search random array
-# simple_search("a", "b")

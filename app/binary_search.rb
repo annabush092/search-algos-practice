@@ -3,15 +3,10 @@
 # function binarySearch() {
 # }
 
-class BinarySearch
-
-  def initialize(arr, search_term)
-    @arr = arr
-    @search_term = search_term
-  end
+class BinarySearch < SearchMom
 
   def perform
-    puts "Inside binary search, arr = #{@arr}, search_term = #{@search_term}"
+    self.print_initial_info("Binary Search")
   end
 
 end
