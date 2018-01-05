@@ -2,12 +2,13 @@ require_relative '../config/environment.rb'
 
 ALL_SEARCHES = ["simple", "binary"]
 
-#print options and get user's choice
+# print search options to user
 MySearch.print_options(ALL_SEARCHES)
-response = MySearch.get_algo(ALL_SEARCHES.length)
+# get user algorithm choice
+search_index = MySearch.get_choice(ALL_SEARCHES.length)
 
 #perform a search using the algorithm the user chose
-my_search = MySearch.new(ALL_SEARCHES[response - 1])
+my_search = MySearch.new(ALL_SEARCHES[search_index])
 my_search.make_my_search
 
 

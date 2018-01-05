@@ -1,12 +1,10 @@
 class MySearch
 
-  attr_accessor :search_term
-
   def initialize(algo)
     @algo = algo
-    @search_term = ""
   end
 
+  # print algorithm options to user
   def self.print_options(arr)
     puts "Search options:"
     arr.each_with_index do |algo, i|
@@ -14,35 +12,50 @@ class MySearch
     end
   end
 
-  def self.get_algo(length)
-    puts "Please enter the number of the search you would like to make: "
+  # get and validate user input
+  def self.get_choice(length)
+    puts "Please enter the number of the search algorithm you would like to use: "
     input = gets.chomp
-    if !input.to_i.is_a?(Fixnum) || input.to_i>length
+
+    # validate input. If invalid, get new choice
+    if input.to_i<1 || input.to_i>length
       puts "Only enter a number from the given options..."
-      input = self.get_algo(length)
+      input = self.get_choice(length)
     end
-    input.to_i
+
+    # return the user's choice, converted to the index number in the array
+    input.to_i - 1
   end
 
-  # create random array of numbers, invoked in perform_search
+  # create random array of numbers between 1 and 100
+  # invoked in perform_search
   def make_array
     rando_arr = []
     10.times do
-      rando_arr << (Random.rand() * 100).to_i
+      rando_arr << (Random.rand() * 100 + 1).to_i
     end
     puts "The new array is: #{rando_arr}"
     rando_arr
   end
 
-  #ask user for a search term, invoked in make_my_search
+  # ask user for a search term
+  # invoked in make_my_search
   def get_search_term
-    puts "Please enter an integer you would like to search for between 0 and 100:"
+    puts "Please enter an integer you would like to search for between 1 and 100:"
     user_input = gets.chomp
     puts "You entered #{user_input}."
+
+    # validate user input
+    if user_input.to_i>100 || user_input.to_i < 1
+      puts "Only enter an integer between 1 and 100..."
+      user_input = self.get_search_term
+    end
+
     user_input
   end
 
-  # switch statement to be used in make_my_search
+  # algorithm switch statement
+  # invoked in make_my_search
   def perform_search
 
     # fix syntax of switch statement
@@ -61,9 +74,9 @@ class MySearch
 
   #search for term using the specified algorithm
   def make_my_search
-    @search_term = self.get_search_term
-    puts "Searching for #{@search_term} using a #{@algo.capitalize} Search..."
-    self.perform_search
+    search_term = self.get_search_term
+    puts "Searching for #{search_term} using a #{@algo.capitalize} Search..."
+    # self.perform_search
   end
 
 end
