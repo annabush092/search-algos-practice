@@ -57,26 +57,23 @@ class MySearch
   # algorithm switch statement
   # invoked in make_my_search
   def perform_search
-
-    # fix syntax of switch statement
-    # how do you make it so you can call another class within this class?
-
-    # switch @algo
-    #   when "simple":
-        # SimpleSeach.new(self.make_array, @search_term).perform
-    #     break
-    #   when "binary":
-    #     break
-    #   default:
-    #     puts "error in switch statement"
-    # end
+    case @algo
+      when "simple"
+        search = SimpleSearch.new(self.make_array, self.get_search_term)
+      when "binary"
+        search = BinarySearch.new(self.make_array, self.get_search_term)
+      else
+        puts "error in switch statement"
+        return
+    end
+    search.perform
   end
 
   #search for term using the specified algorithm
   def make_my_search
-    search_term = self.get_search_term
-    puts "Searching for #{search_term} using a #{@algo.capitalize} Search..."
-    # self.perform_search
+    puts "Searching using a #{@algo.capitalize} Search..."
+
+    self.perform_search
   end
 
 end

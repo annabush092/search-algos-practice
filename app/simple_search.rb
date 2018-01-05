@@ -18,7 +18,7 @@ class SimpleSearch
   end
 
   def perform
-    puts "Inside simple search, arr = #{arr}, search_term = #{search_term}"
+    puts "Inside simple search, arr = #{@arr}, search_term = #{@search_term}"
   end
 
 end
