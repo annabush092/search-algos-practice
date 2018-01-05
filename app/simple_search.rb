@@ -16,6 +16,7 @@ class SimpleSearch < SearchMom
     self.print_initial_info("Simple Search")
     puts "..."
 
+    
   end
 
 end
