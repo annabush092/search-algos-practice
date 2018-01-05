@@ -5,6 +5,7 @@ class MySearch
   end
 
   # print algorithm options to user
+  # invoked in get_algorithm
   def self.print_options(arr)
     puts "Search options:"
     arr.each_with_index do |algo, i|
@@ -13,6 +14,7 @@ class MySearch
   end
 
   # get and validate user input
+  # invoked in get_algorithm
   def self.get_choice(length)
     puts "Please enter the number of the search algorithm you would like to use: "
     input = gets.chomp
@@ -25,6 +27,12 @@ class MySearch
 
     # return the user's choice, converted to the index number in the array
     input.to_i - 1
+  end
+
+  #user interface
+  def self.get_algorithm(arr)
+    self.print_options(arr)
+    self.get_choice(arr.length)
   end
 
   # create random array of numbers between 1 and 100
