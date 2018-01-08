@@ -1,7 +1,8 @@
 class MySearch
 
-  def initialize(algo)
+  def initialize(algo, rando_arr)
     @algo = algo
+    @rando_arr = rando_arr
   end
 
   # print algorithm options to user
@@ -36,16 +37,16 @@ class MySearch
     self.get_choice(arr.length)
   end
 
-  # create random array of numbers between 1 and 100
-  # invoked in perform_search
-  def make_array
-    rando_arr = []
-    1000000.times do
-      rando_arr << (Random.rand() * 1000000 + 1).to_i
-    end
-    # puts "The new array is: #{rando_arr}"
-    rando_arr
-  end
+  # # create random array of numbers between 1 and 100
+  # # invoked in perform_search
+  # def make_array
+  #   rando_arr = []
+  #   1000000.times do
+  #     rando_arr << (Random.rand() * 1000000 + 1).to_i
+  #   end
+  #   # puts "The new array is: #{rando_arr}"
+  #   rando_arr
+  # end
 
   # ask user for a search term
   # invoked in make_my_search
@@ -71,10 +72,10 @@ class MySearch
     # create an instance of the correct algorithm and print search information
     case @algo
       when "simple"
-        search = SimpleSearch.new(self.make_array, self.get_search_term)
+        search = SimpleSearch.new(@rando_arr, self.get_search_term)
         search.print_initial_info("Simple Search")
       when "binary"
-        search = BinarySearch.new(self.make_array, self.get_search_term)
+        search = BinarySearch.new(@rando_arr, self.get_search_term)
         search.print_initial_info("Binary Search")
       else
         puts "error in switch statement"
@@ -94,12 +95,12 @@ class MySearch
   end
 
   # putting everything together...
-  def self.run(search_list)
+  def self.run(search_list, rando_arr)
     # get user's choice of which search algorithm to use
     search_index = self.get_algorithm(search_list)
 
     #perform a search using the chosen algorithm
-    my_search = self.new(search_list[search_index])
+    my_search = self.new(search_list[search_index], rando_arr)
     my_search.make_my_search
 
     puts ""
@@ -108,7 +109,7 @@ class MySearch
     puts "Would you like to make another search? (y/n)"
     choice = gets.chomp
     if choice == "y"
-      self.run(search_list)
+      self.run(search_list, rando_arr)
     else
       puts "Thank you for searching! Goodbye."
       puts ""
