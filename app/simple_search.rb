@@ -16,10 +16,6 @@ class SimpleSearch < SearchMom
   # @arr and @search_term are initialized in SearchMom
 
   def perform
-
-    #print_initial_info is defined in SearchMom
-    self.print_initial_info("Simple Search")
-
     # loop through array
     # break if you find the search term or if you reach the end of the array
     i = 0

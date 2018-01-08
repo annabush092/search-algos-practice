@@ -9,7 +9,7 @@ class SearchMom
     puts "*********************************************************************"
     puts ""
     puts "Searching with a #{search_name}..."
-    puts "Random array: #{@arr}"
+    # puts "Random array: #{@arr}"
     puts "Searching for: #{@search_term}"
     puts ""
     puts "        ______"

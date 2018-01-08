@@ -6,7 +6,7 @@
 class BinarySearch < SearchMom
 
   def perform
-    self.print_initial_info("Binary Search")
+    puts "..."
   end
 
 end

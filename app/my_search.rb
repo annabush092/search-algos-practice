@@ -40,10 +40,10 @@ class MySearch
   # invoked in perform_search
   def make_array
     rando_arr = []
-    10.times do
+    100000.times do
       rando_arr << (Random.rand() * 100 + 1).to_i
     end
-    puts "The new array is: #{rando_arr}"
+    # puts "The new array is: #{rando_arr}"
     rando_arr
   end
 
@@ -56,8 +56,8 @@ class MySearch
     # puts "You entered #{user_input}."
 
     # validate user input
-    if user_input.to_i>100 || user_input.to_i < 1
-      puts "Only enter an integer between 1 and 100..."
+    if user_input.to_i < 1
+      puts "Only enter an integer that is greater than 1..."
       user_input = self.get_search_term
     end
 
@@ -68,16 +68,21 @@ class MySearch
   # algorithm switch statement
   # invoked in make_my_search
   def perform_search
+    # create an instance of the correct algorithm and print search information
     case @algo
       when "simple"
         search = SimpleSearch.new(self.make_array, self.get_search_term)
+        search.print_initial_info("Simple Search")
       when "binary"
         search = BinarySearch.new(self.make_array, self.get_search_term)
+        search.print_initial_info("Binary Search")
       else
         puts "error in switch statement"
         return
     end
-    search.perform
+
+    # perform the search and measure how long it takes
+    puts Benchmark.measure {  search.perform  }
   end
 
   #search for term using the specified algorithm

@@ -1,6 +1,7 @@
 require 'bundler'
 Bundler.require
 require 'pry'
+require 'benchmark'
 
 # parent class of all search classes
 require './app/search_mom.rb'
