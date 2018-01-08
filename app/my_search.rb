@@ -7,7 +7,8 @@ class MySearch
   # print algorithm options to user
   # invoked in get_algorithm
   def self.print_options(arr)
-    puts "Search options:"
+    puts ""
+    puts "Please enter the number of the search algorithm you would like to use: "
     arr.each_with_index do |algo, i|
       puts "#{i+1}. #{algo}"
     end
@@ -17,7 +18,6 @@ class MySearch
   # invoked in get_algorithm
   def self.get_choice(length)
     puts ""
-    puts "Please enter the number of the search algorithm you would like to use: "
     input = gets.chomp
 
     # validate input. If invalid, get new choice
@@ -61,7 +61,8 @@ class MySearch
       user_input = self.get_search_term
     end
 
-    user_input
+    # return the user input, as an integer
+    user_input.to_i
   end
 
   # algorithm switch statement
@@ -83,6 +84,24 @@ class MySearch
   def make_my_search
     puts "You chose to search using a #{@algo.capitalize} Search..."
     self.perform_search
+  end
+
+  # putting everything together...
+  def self.run(search_list)
+    # get user's choice of which search algorithm to use
+    search_index = self.get_algorithm(search_list)
+
+    #perform a search using the chosen algorithm
+    my_search = self.new(search_list[search_index])
+    my_search.make_my_search
+
+    puts "Would you like to make another search? (y/n)"
+    choice = gets.chomp
+    if choice == "y"
+      self.run(search_list)
+    else
+      puts "Thank you for searching! Goodbye."
+    end
   end
 
 end
