@@ -37,22 +37,11 @@ class MySearch
     self.get_choice(arr.length)
   end
 
-  # # create random array of numbers between 1 and 100
-  # # invoked in perform_search
-  # def make_array
-  #   rando_arr = []
-  #   1000000.times do
-  #     rando_arr << (Random.rand() * 1000000 + 1).to_i
-  #   end
-  #   # puts "The new array is: #{rando_arr}"
-  #   rando_arr
-  # end
-
   # ask user for a search term
   # invoked in make_my_search
   def get_search_term
     puts ""
-    puts "Please enter an integer you would like to search for between 1 and 1,000,000:"
+    puts "Please enter an integer you would like to search for between 1 and 100,000:"
     user_input = gets.chomp
     # puts "You entered #{user_input}."
 
