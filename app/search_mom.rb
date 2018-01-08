@@ -6,13 +6,31 @@ class SearchMom
   end
 
   def print_initial_info(search_name)
-    puts "****************************************"
+    puts "*********************************************************************"
     puts ""
     puts "Searching with a #{search_name}..."
     puts "Random array: #{@arr}"
     puts "Searching for: #{@search_term}"
     puts ""
-    puts "****************************************"
+    puts "        ______"
+    puts "     .-'      `-. "
+    puts "   .'             `."
+    puts "  /                 | "
+    puts " ;                   ;`"
+    puts " |            /      |;"
+    puts " ;           / / /   ;|"
+    puts " '|         / / /   / ;"
+    puts "   |`.     / /    .' /"
+    puts "    `.`-._____.-' .'"
+    puts "      / /`_____.-'"
+    puts "     / / /"
+    puts "    / / /"
+    puts "   / / /"
+    puts "  / / /"
+    puts " / / /"
+    puts "/ / /"
+    puts " /_/"
+    puts ""
     puts ""
   end
 

@@ -7,7 +7,7 @@ class MySearch
   # print algorithm options to user
   # invoked in get_algorithm
   def self.print_options(arr)
-    puts ""
+    puts "*********************************************************************"
     puts "Please enter the number of the search algorithm you would like to use: "
     arr.each_with_index do |algo, i|
       puts "#{i+1}. #{algo}"
@@ -43,7 +43,7 @@ class MySearch
     10.times do
       rando_arr << (Random.rand() * 100 + 1).to_i
     end
-    # puts "The new array is: #{rando_arr}"
+    puts "The new array is: #{rando_arr}"
     rando_arr
   end
 
@@ -83,6 +83,8 @@ class MySearch
   #search for term using the specified algorithm
   def make_my_search
     puts "You chose to search using a #{@algo.capitalize} Search..."
+    puts ""
+    puts "*********************************************************************"
     self.perform_search
   end
 
@@ -95,12 +97,16 @@ class MySearch
     my_search = self.new(search_list[search_index])
     my_search.make_my_search
 
+    puts ""
+    puts "*********************************************************************"
+    puts ""
     puts "Would you like to make another search? (y/n)"
     choice = gets.chomp
     if choice == "y"
       self.run(search_list)
     else
       puts "Thank you for searching! Goodbye."
+      puts ""
     end
   end
 
