@@ -40,8 +40,8 @@ class MySearch
   # invoked in perform_search
   def make_array
     rando_arr = []
-    100000.times do
-      rando_arr << (Random.rand() * 100 + 1).to_i
+    1000000.times do
+      rando_arr << (Random.rand() * 1000000 + 1).to_i
     end
     # puts "The new array is: #{rando_arr}"
     rando_arr
@@ -51,7 +51,7 @@ class MySearch
   # invoked in make_my_search
   def get_search_term
     puts ""
-    puts "Please enter an integer you would like to search for between 1 and 100:"
+    puts "Please enter an integer you would like to search for between 1 and 1,000,000:"
     user_input = gets.chomp
     # puts "You entered #{user_input}."
 
